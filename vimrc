@@ -1,4 +1,6 @@
-" Sample .vimrc file 
+" Sample .vimrc file by Martin Brochhaus
+" Presented at PyCon APAC 2012
+
 " ============================================
 " Note to myself:
 " DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
@@ -19,10 +21,12 @@ set pastetoggle=<F8>
 set mouse=a  " on OSX press ALT and click
 "" set bs=2     " make backspace behave like normal again
 
+
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = ' '
+
 
 " Bind nohl
 " Removes highlight of your last search
@@ -31,16 +35,19 @@ let mapleader = ' '
 "vnoremap <C-n> :nohl<CR>
 "inoremap <C-n> :nohl<CR>
 
+
 " Quicksave command
 noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR><Esc>
+inoremap <C-Z> <C-O>:update<CR>
+
 
 " Quick quit command
 noremap <Leader>q :quit<CR>  " Quit current window
 noremap <Leader>qq :qa!<CR>   " Quit all windows
 
-noremap <Leader>e :e
+noremap <Leader>e :e 
+
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
 "map <c-j> <c-w>j
@@ -206,11 +213,26 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 "My useful settings
 "Nice
-
+" no vi-compatible
 set nocompatible
+
+" allow plugins by file type (required for plugins!)
+filetype plugin on
+filetype indent on
+
+" always show status bar
+set ls=2
+
+" incremental search
+set incsearch
+" highlighted search results
+set hlsearch
+
+" syntax highlight on
+"syntax on
+
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-filetype indent on
 " filetype plugin on
 set smartindent
 set backspace=indent,eol,start
@@ -236,9 +258,17 @@ set wildmenu
 "map .# :s/^#//<CR> <Esc>:noh<CR>
 "map <C-J> <C-W>x<C-W><Down>
 "map <Leader>x <c-[>'<^r<CR>i/*<c-[>'>$i*/<c-[>
-set tabstop=4
-set shiftwidth=4
+" tabs and spaces handling
 set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" show line numbers
+set nu
+
+" remove ugly vertical lines on window division
+set fillchars+=vert:\ 
 "autocmd BufRead *.as set filetype=java
 "autocmd BufRead *.tt set filetype=php
 "autocmd BufRead *.pp set filetype=ruby
@@ -297,6 +327,7 @@ map <Leader>k <C-B>
 autocmd FileType python map <buffer> <Leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <Leader>r <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+map <Leader>ww <C-W>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -309,3 +340,4 @@ let custom_configs_2 = "~/.vim/complex_config.vimrc"
 if filereadable(expand(custom_configs_2))
   execute "source " . custom_configs_2
 endif
+

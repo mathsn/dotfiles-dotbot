@@ -78,15 +78,26 @@ Plug 'nvie/vim-flake8'
 "Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
-
+"Plug 'szymonmaszke/vimpyter'
+"Plug 'jupyter-vim/jupyter-vim'
 "auto-completion stuff
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plugin 'klen/python-mode'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'klen/rope-vim'
 "Plugin 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 ""code folding
-Plug 'tmhedberg/SimpylFold'
+"Plug 'tmhedberg/SimpylFold'
+
+"copy from vim-xcode
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 "Colors!!!
 "Plug 'altercation/vim-colors-solarized'
@@ -95,6 +106,7 @@ Plug 'tmhedberg/SimpylFold'
 " A couple of nice colorschemes
 " Plug 'fisadev/fisa-vim-colorscheme'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'morhetz/gruvbox'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -102,20 +114,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Pending tasks list
-Plug 'fisadev/FixedTaskList.vim'
-
- "Async autocompletion
-if using_neovim && vim_plug_just_installed
-    Plug 'Shougo/deoplete.nvim', {'do': ':autocmd VimEnter * UpdateRemotePlugins'}
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
+"Plug 'fisadev/FixedTaskList.vim'
+" Async autocompletion
+"if using_neovim && vim_plug_just_installed
+    "Plug 'Shougo/deoplete.nvim', {'do': ':autocmd VimEnter * UpdateRemotePlugins'}
+"else
+    "Plug 'Shougo/deoplete.nvim'
+"endif
 "Plug 'roxma/nvim-yarp'
 "Plug 'roxma/vim-hug-neovim-rpc'
-
 " Python autocompletion
 " Plug 'deoplete-plugins/deoplete-jedi'
 " Completion from other opened files
@@ -142,9 +149,9 @@ Plug 't9md/vim-choosewin'
 " Automatically sort python imports
 "Plug 'fisadev/vim-isort'
 " Highlight matching html tags
-Plug 'valloric/MatchTagAlways'
+"Plug 'valloric/MatchTagAlways'
 " Generate html in a simple way
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 " Git integration
 "Plug 'tpope/vim-fugitive'
 " Git/mercurial/others diff icons on the side of the file lines
@@ -160,57 +167,46 @@ Plug 'neomake/neomake'
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
 " Nice icons in the file explorer and file type status line.
-Plug 'ryanoasis/vim-devicons'
-
+"Plug 'ryanoasis/vim-devicons'
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
     Plug 'rosenfeld/conque-term'
     " XML/HTML tags navigation (neovim has its own)
     Plug 'vim-scripts/matchit.zip'
 endif
-
 " Code searcher. If you enable it, you should also configure g:hound_base_url 
 " and g:hound_port, pointing to your hound instance
 " Plug 'mattn/webapi-vim'
 " Plug 'jfo/hound.vim'
-
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
 " ============================================================================
-" Install plugins the first time vim runs
+"/Users/Ning/anaconda3/bin Install plugins the first time vim runs
 
 if vim_plug_just_installed
     echo "Installing Bundles, please ignore key map error messages"
     :PlugInstall
 endif
 
-let g:python3_host_prog='/Users/Ning/anaconda3/bin/python'
-
+if has('nvim')
+    let g:python3_host_prog = '/Users/Ning/anaconda3/bin/python'
+else
+    set pyxversion=3
+    " OSX
+    set pythonthreedll=/Users/Ning/anaconda3/bin/python
+    "" Windows
+    "set pythonthreedll=python37.dll
+    "set pythonthreehome=C:\Python37
+endif
 " ============================================================================
 " Vim settings and mappings
 " You can edit them as you wish
- 
+"autocmd Filetype ipynb nmap <silent><Leader>b :VimpyterInsertPythonBlock<CR>
+"autocmd Filetype ipynb nmap <silent><Leader>m :VimpyterStartJupyter<CR>
+"autocmd Filetype ipynb nmap <silent><Leader>n :VimpyterStartNteract<CR>
 if using_vim
     " A bunch of things that are set by default in neovim, but not in vim
-
-    " no vi-compatible
-    set nocompatible
-
-    " allow plugins by file type (required for plugins!)
-    filetype plugin on
-    filetype indent on
-
-    " always show status bar
-    set ls=2
-
-    " incremental search
-    set incsearch
-    " highlighted search results
-    set hlsearch
-
-    " syntax highlight on
-    syntax on
 
     " better backup, swap and undos storage for vim (nvim has nice ones by
     " default)
@@ -232,17 +228,6 @@ if using_vim
     endif
 end
 
-" tabs and spaces handling
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
-" show line numbers
-set nu
-
-" remove ugly vertical lines on window division
-set fillchars+=vert:\ 
 
 " use 256 colors when possible
 if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
@@ -250,34 +235,34 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
         let &t_Co = 256
     endif
     set background=dark
-    "colorscheme solarized
-    colorscheme vim-monokai-tasty
+    "colorscheme vim-monokai-tasty
+    colorscheme gruvbox
 else
     colorscheme delek
     "colorscheme zenburn
 endif
 
 " needed so deoplete can auto select the first suggestion
-let g:deoplete#enable_at_startup = 1
-set completeopt+=noinsert
-" comment this line to enable autocompletion preview window
-" (displays documentation related to the selected completion option)
-" disabled by default because preview makes the window flicker
-set completeopt-=preview
+"let g:deoplete#enable_at_startup = 1
+"set completeopt+=noinsert
+"" comment this line to enable autocompletion preview window
+"" (displays documentation related to the selected completion option)
+"" disabled by default because preview makes the window flicker
+"set completeopt-=preview
 
-" autocompletion of files and commands behaves like shell
-" (complete only the common part, list the options tnhat match)
-set wildmode=list:longest
+"" autocompletion of files and commands behaves like shell
+"" (complete only the common part, list the options tnhat match)
+"set wildmode=list:longest
 
 " save as sudo
 ca w!! w !sudo tee "%"
 
 " tab navigation mappings
 map tt :tabnew 
-map <Leader>n :tabn<CR>
-imap <Leader>n <ESC>:tabn<CR>
-map <Leader>m :tabp<CR>
-imap <Leader>m <ESC>:tabp<CR>
+"map <Leader>n :tabn<CR>
+"imap <Leader>n <ESC>:tabn<CR>
+"map <Leader>m :tabp<CR>
+"imap <Leader>m <ESC>:tabp<CR>
 
 " import ipdb; ipdb.set_trace() # BREAKPOINT
 " when scrolling, keep cursor 3 lines away from screen border
@@ -308,6 +293,7 @@ au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 " " autofocus on tagbar open
 " let g:tagbar_autofocus = 1
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " NERDTree -----------------------------
 
 " toggle nerdtree display
@@ -320,6 +306,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " Enable folder icons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:NERDTreeGitStatusWithFlags = 1
 
 " Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
@@ -343,7 +330,7 @@ autocmd BufEnter * call NERDTreeRefresh()
 " Tasklist ------------------------------
 
 " show pending tasks list
-map <F2> :TaskList<CR>
+"map <F2> :TaskList<CR>
 
 " Neomake ------------------------------
 
@@ -464,7 +451,6 @@ let g:airline_theme = 'wombat'
 let g:airline#extensions#whitespace#enabled = 0
 
 " Fancy Symbols!!
-
 if fancy_symbols_enabled
     let g:webdevicons_enable = 1
     " custom airline symbols
@@ -568,12 +554,144 @@ nnoremap <space> za
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
+"----------COC--------------
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
+" from readme
+" if hidden is not set, TextEdit might fail.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+"" Manage extensions
+"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+"" Show commands
+"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"" Find symbol of current document
+"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+"" Search workspace symbols
+"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+"" Do default action for next item.
+"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+"" Do default action for previous item.
+"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+"" Resume latest coc list
+"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Include user's custom nvim configurations
-" if using_neovim
-"     let custom_configs_path = "~/.config/nvim/custom.vim"
-" else
-"     let custom_configs_path = "~/.vim/custom.vim"
-" endif
-" if filereadable(expand(custom_configs_path))
-"   execute "source " . custom_configs_path
-" endif
+"if using_neovim
+    "let custom_configs_path = "~/.config/nvim/custom.vim"
+"else
+    "let custom_configs_path = "~/.vim/custom.vim"
+"endif
+"if filereadable(expand(custom_configs_path))
+  "execute "source " . custom_configs_path
+"endif
+"
+nmap <Leader>rr :YRShow<CR>
