@@ -30,7 +30,7 @@
     ~/.shell:
     ~/.zsh:
     ~/.zshrc:
-    ~/.oh-my-zsh:
+    #~/.oh-my-zsh:
     ~/.config/nvim/init.vim: init.vim 
     #~/.config:
     ~/.jupyter:
