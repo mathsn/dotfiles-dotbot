@@ -1,6 +1,4 @@
-" Sample .vimrc file by Martin Brochhaus
-" Presented at PyCon APAC 2012
-
+" Sample .vimrc file 
 " ============================================
 " Note to myself:
 " DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
@@ -21,12 +19,10 @@ set pastetoggle=<F8>
 set mouse=a  " on OSX press ALT and click
 "" set bs=2     " make backspace behave like normal again
 
-
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = ' '
-
 
 " Bind nohl
 " Removes highlight of your last search
@@ -35,18 +31,16 @@ let mapleader = ' '
 "vnoremap <C-n> :nohl<CR>
 "inoremap <C-n> :nohl<CR>
 
-
 " Quicksave command
 noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
-
+inoremap <C-Z> <C-O>:update<CR><Esc>
 
 " Quick quit command
-noremap <Leader>e :quit<CR>  " Quit current window
-noremap <Leader>E :qa!<CR>   " Quit all windows
+noremap <Leader>q :quit<CR>  " Quit current window
+noremap <Leader>qq :qa!<CR>   " Quit all windows
 
-
+noremap <Leader>e :e
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
 "map <c-j> <c-w>j
@@ -315,4 +309,3 @@ let custom_configs_2 = "~/.vim/complex_config.vimrc"
 if filereadable(expand(custom_configs_2))
   execute "source " . custom_configs_2
 endif
-

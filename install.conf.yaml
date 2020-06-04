@@ -30,9 +30,10 @@
     ~/.shell:
     ~/.zsh:
     ~/.zshrc:
+    ~/.oh-my-zsh:
     ~/.config:
     ~/.jupyter:
-    ~/.zshrc:
+    #~/.zshrc:
     #~/.zsh_profile:
     ~/.alias:
     ~/.vimperatorrc:

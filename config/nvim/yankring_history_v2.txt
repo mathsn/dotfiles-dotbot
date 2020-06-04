@@ -1,4 +1,13 @@
 ,V
+<CR>,v
+by Martin Brochhaus,v
+" Presented at PyCon APAC 2012,V
+zshrc,v
+    ~/.zshrc:,V
+e,v
+Ning,v
+/,v
+Users,v
             if os.path.islink(realpath):                print("Removing ", realpath)                os.unlink(realpath),v
 not ,v
 Can ,v
@@ -39,7 +48,6 @@ if os.path.exists(filePath):    os.remove(filePath)else:    print("Can not de
 vimrc,v
       path: zshrc,V
       force: true,V
-    ~/.zshrc:,V
 d,v
 wvimrc,v
 force,v
