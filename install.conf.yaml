@@ -39,7 +39,7 @@
     ~/.alias:
     ~/.vimperatorrc:
     ~/.vimperator:
-    ~/.fzf:
+    #~/.fzf:
 
 - create:
     - ~/downloads
