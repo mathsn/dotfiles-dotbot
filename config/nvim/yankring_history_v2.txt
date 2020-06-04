@@ -1,3 +1,29 @@
+,V
+            if os.path.islink(realpath):                print("Removing ", realpath)                os.unlink(realpath),v
+not ,v
+Can ,v
+            else:,V
+exists,v
+t ,v
+as it doesn',v
+Can not ,v
+    if,v
+            if os.path.exists(realpath) and os.path.isfile(realpath):,V
+f ,v
+                i,v
+                if os.path.isfile(realpath):,v
+                   t,V
+ ,v
+os.path.exists,v
+                # os.unlink(realpath),V
+                # print("Removing ", realpath),V
+            # if os.path.islink(realpath):,V
+tmux,v
+vim,v
+    ~/.fzf:,V
+    ~/.vimrc:     ~/.bash:     ~/.bash_profile:     ~/.bashrc:     ~/.dotfiles: ''    ~/.emacs.d:    ~/.emacs:    #~/.gitconfig:    #~/.gitignore_global:    #~/.gnupg/gpg.conf:    ~/.inputrc:    ~/.ipython/profile_default/ipython_config.py: ipython/ipython_config.py    ~/.ipython/profile_default/ipython_kernel_config.py: ipython/ipython_kernel_config.py    ~/.ipython/profile_default/startup/disable_warnings.py: ipython/disable_warnings.py    #~/.jupyter/jupyter_notebook_config.py: .jupyter/jupyter_notebook_config.py    #~/.jupyter/nbconfig/notebook.json: .jupyter/notebook.json    #~/.local/share/jupyter/nbextensions: .jupyter/nbextensions    ~/.pythonrc:    ~/.screenrc:    ~/.shell:    ~/.zsh:    ~/.zshrc:    ~/.config:    ~/.jupyter:    ~/.zshrc:    #~/.zsh_profile:    ~/.alias:    ~/.vimperatorrc:    ~/.vimperator:,V
+conf,v
+            # else:,V
 vimperatorrc,v
     ~/.vimperatorrc:,V
 bash_profile,v
@@ -11,7 +37,6 @@ alias,v
 filePath,v
 if os.path.exists(filePath):    os.remove(filePath)else:    print("Can not delete the file as it doesn't exists"),v
 vimrc,v
- ,v
       path: zshrc,V
       force: true,V
     ~/.zshrc:,V
@@ -25,7 +50,6 @@ force,v
     ~/.dotfiles: ''    ~/.tmux.conf: tmux.conf    ~/.vim: .vim    ~/.vimrc: .vimrc    ~/.bash: .bash    ~/.bash_profile: .bash_profile    ~/.bashrc: .bashrc,V
 #!/usr/bin/env pythonfrom __future__ import print_functionimport yamlimport osCONFIG="install.conf.yaml"stream = open(CONFIG, "r")conf = yaml.load(stream)for section in conf:    if 'link' in section:        for target in section['link']:            realpath = os.path.expanduser(target)            if os.path.islink(realpath):                print("Removing ", realpath)                os.unlink(realpath),v
     ~/.dotfiles: ''    ~/.tmux.conf: tmux.conf    ~/.vim: .vim    ~/.vimrc: .vimrc    ~/.bash: .bash    ~/.bash_profile: .bash_profile    ~/.bashrc: .bashrc    ~/.dotfiles: ''    ~/.emacs.d:    ~/.emacs:    ~/.gitconfig:    ~/.gitignore_global:    ~/.gnupg/gpg.conf:    ~/.inputrc:    ~/.ipython/profile_default/ipython_config.py: ipython/ipython_config.py    ~/.ipython/profile_default/ipython_kernel_config.py: ipython/ipython_kernel_config.py    ~/.ipython/profile_default/startup/disable_warnings.py: ipython/disable_warnings.py    ~/.jupyter/jupyter_notebook_config.py: jupyter/jupyter_notebook_config.py    ~/.jupyter/nbconfig/notebook.json: jupyter/notebook.json    ~/.local/share/jupyter/nbextensions: jupyter/nbextensions    ~/.pythonrc:    ~/.screenrc:    ~/.shell:    ~/.tmux.conf:    ~/.vim:    ~/.vimrc:    ~/.zsh:    ~/.zshrc:,V
-,V
 - link:    ~/.bash:    ~/.bash_profile:    ~/.bashrc:    ~/.dotfiles: ''    ~/.emacs.d:    ~/.emacs:    ~/.gitconfig:    ~/.gitignore_global:    ~/.gnupg/gpg.conf:    ~/.inputrc:    ~/.ipython/profile_default/ipython_config.py: ipython/ipython_config.py    ~/.ipython/profile_default/ipython_kernel_config.py: ipython/ipython_kernel_config.py    ~/.ipython/profile_default/startup/disable_warnings.py: ipython/disable_warnings.py    ~/.jupyter/jupyter_notebook_config.py: jupyter/jupyter_notebook_config.py    ~/.jupyter/nbconfig/notebook.json: jupyter/notebook.json    ~/.local/share/jupyter/nbextensions: jupyter/nbextensions    ~/.pythonrc:    ~/.screenrc:    ~/.shell:    ~/.tmux.conf:    ~/.vim:    ~/.vimrc:    ~/.zsh:,V
     ~/.bash:    ~/.bash_profile:    ~/.bashrc:    ~/.dotfiles: ''    ~/.emacs.d:    ~/.emacs:    ~/.gitconfig:    ~/.gitignore_global:    ~/.gnupg/gpg.conf:    ~/.inputrc:    ~/.ipython/profile_default/ipython_config.py: ipython/ipython_config.py    ~/.ipython/profile_default/ipython_kernel_config.py: ipython/ipython_kernel_config.py    ~/.ipython/profile_default/startup/disable_warnings.py: ipython/disable_warnings.py    ~/.jupyter/jupyter_notebook_config.py: jupyter/jupyter_notebook_config.py    ~/.jupyter/nbconfig/notebook.json: jupyter/notebook.json    ~/.local/share/jupyter/nbextensions: jupyter/nbextensions    ~/.pythonrc:    ~/.screenrc:    ~/.shell:    ~/.tmux.conf:    ~/.vim:    ~/.vimrc:    ~/.zsh:    ~/.zshrc:,v
     - ~/.vim/undo-history,V

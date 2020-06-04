@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.test.conf:
+    ~/.test: 
+
+- create:
+    - ~/downloads
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+  #- git submodule sync --recursive
+  ## the following have to run after linking ~/.gitconfig
+  #- git update-submodules
+  #- >
+    #git cleanall -f
+    #emacs.d/vendor/
+    #irssi/scripts/vendor/
+    #jupyter/nbextensions/
+    #shell/plugins/
+    #vim/pack/vendor/start/
+    #zsh/plugins/
