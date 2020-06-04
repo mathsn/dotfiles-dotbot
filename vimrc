@@ -1,221 +1,318 @@
-set nocompatible " not vi compatible
+" Sample .vimrc file by Martin Brochhaus
+" Presented at PyCon APAC 2012
 
-"------------------
-" Syntax and indent
-"------------------
-syntax on " turn on syntax highlighting
-set showmatch " show matching braces when text indicator is over them
+" ============================================
+" Note to myself:
+" DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
+" ============================================
 
-" highlight current line, but only in active window
-augroup CursorLineOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
+set relativenumber
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
 
-" vim can autodetect this based on $TERM (e.g. 'xterm-256color')
-" but it can be set to force 256 colors
-" set t_Co=256
-if has('gui_running')
-    colorscheme solarized
-    let g:lightline = {'colorscheme': 'solarized'}
-elseif &t_Co < 256
-    colorscheme default
-    set nocursorline " looks bad in this mode
-else
-    set background=dark
-    let g:solarized_termcolors=256 " instead of 16 color with mapping in terminal
-    colorscheme solarized
-    " customized colors
-    highlight SignColumn ctermbg=234
-    highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
-    highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
-    let g:lightline = {'colorscheme': 'dark'}
-    highlight SpellBad cterm=underline
-    " patches
-    highlight CursorLineNr cterm=NONE
-endif
+" Better copy & paste
+" When you want to paste large blocks of code into vim, press F2 before you
+" paste. At the bottom you should see ``-- INSERT (paste) --``.
 
-filetype plugin indent on " enable file type detection
-set autoindent
+set clipboard=unnamed
+set pastetoggle=<F8>
 
-"---------------------
-" Basic editing config
-"---------------------
-set shortmess+=I " disable startup message
-set nu " number lines
-set rnu " relative line numbering
-set incsearch " incremental search (as string is being typed)
-set hls " highlight search
-set listchars=tab:>>,nbsp:~ " set list to see tabs and non-breakable spaces
-set lbr " line break
-set scrolloff=5 " show lines above and below cursor (when possible)
-set noshowmode " hide mode
-set laststatus=2
-set backspace=indent,eol,start " allow backspacing over everything
-set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
-set lazyredraw " skip redrawing screen in some cases
-set autochdir " automatically set current directory to directory of last opened file
-set hidden " allow auto-hiding of edited buffers
-set history=8192 " more history
-set nojoinspaces " suppress inserting two spaces between sentences
-" use 4 spaces instead of tabs during formatting
-set expandtab
+" Mouse and backspace
+set mouse=a  " on OSX press ALT and click
+"" set bs=2     " make backspace behave like normal again
+
+
+" Rebind <Leader> key
+" I like to have it here becuase it is easier to reach than the default and
+" it is next to ``m`` and ``n`` which I use for navigating between tabs.
+let mapleader = ' '
+
+
+" Bind nohl
+" Removes highlight of your last search
+" ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
+"noremap <C-n> :nohl<CR>
+"vnoremap <C-n> :nohl<CR>
+"inoremap <C-n> :nohl<CR>
+
+
+" Quicksave command
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <C-C>:update<CR>
+inoremap <C-Z> <C-O>:update<CR>
+
+
+" Quick quit command
+noremap <Leader>e :quit<CR>  " Quit current window
+noremap <Leader>E :qa!<CR>   " Quit all windows
+
+
+" bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
+" Every unnecessary keystroke that can be saved is good for your health :)
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
+
+
+" easier moving between tabs
+"ap <Leader>n <esc>:tabprevious<CR>
+"map <Leader>m <esc>:tabnext<CR>
+
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+""autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+""au InsertLeave * match ExtraWhitespace /\s\+$/
+
+
+" Color scheme
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set t_Co=256
+color wombat256mod
+
+
+" Enable syntax highlighting
+" You need to reload this file for the change to apply
+filetype off
+filetype plugin indent on
+syntax on
+
+
+" Showing line numbers and length
+set number  " show line numbers
+set tw=79   " width of document (used by gd)
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=233
+
+
+" easier formatting of paragraphs
+" Nice
+vmap Q gq
+nmap Q gqap
+
+
+" Useful settings
+set history=700
+set undolevels=700
+
+
+" Real programmers don't use TABs but spaces
 set tabstop=4
-set shiftwidth=4
 set softtabstop=4
-" smart case-sensitive search
+set shiftwidth=4
+set shiftround
+set expandtab
+
+
+" Make search case insensitive
+set hlsearch
+set incsearch
 set ignorecase
 set smartcase
-" tab completion for files/bufferss
-set wildmode=longest,list
+
+
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" Setup Pathogen to manage your plugins
+" mkdir -p ~/.vim/autoload ~/.vim/bundle
+" curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+" Now you can install any plugin into a .vim/bundle/plugin-name/ folder
+"call pathogen#infect()
+
+
+" ============================================================================
+" Python IDE Setup
+" ============================================================================
+
+
+" Settings for vim-powerline
+" cd ~/.vim/bundle
+" git clone git://github.com/Lokaltog/vim-powerline.git
+set laststatus=2
+
+
+" Settings for ctrlp
+" cd ~/.vim/bundle
+" git clone https://github.com/kien/ctrlp.vim.git
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+
+" Settings for python-mode
+" Note: I'm no longer using this. Leave this commented out
+" and uncomment the part about jedi-vim instead
+" cd ~/.vim/bundle
+" git clone https://github.com/klen/python-mode
+"map <Leader>g :call RopeGotoDefinition()<CR>
+"let ropevim_enable_shortcuts = 1
+"let g:pymode_rope_goto_def_newwin = "vnew"
+"let g:pymode_rope_extended_complete = 1
+"let g:pymode_breakpoint = 0
+"let g:pymode_syntax = 1
+"import ipdb; ipdb.set_trace
+"let g:pymode_syntax_builtin_objs = 0
+"let g:pymode_syntax_builtin_funcs = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+"let g:jedi#force_py_version = 2
+
+" Settings for jedi-vim
+" cd ~/.vim/bundle
+" git clone git://github.com/davidhalter/jedi-vim.git
+"let g:jedi#usages_command = "<leader>z"
+" let g:jedi#popup_on_dot = 0,
+"let g:jedi#popup_select_first = 0
+"map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+" Better navigating through omnicomplete option list
+" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
+"set completeopt=longest,menuone
+"function! OmniPopup(action)
+    "if pumvisible()
+        "if a:action == 'j'
+            "return "\<C-N>"
+        "elseif a:action == 'k'
+            "return "\<C-P>"
+        "endif
+    "endif
+    "return a:action
+"endfunction
+
+"inoremap <silent><Leader>j <C-R>=OmniPopup('j')<CR>
+"inoremap <silent><Leader>k <C-R>=OmniPopup('k')<CR>
+
+
+" Python folding
+" mkdir -p ~/.vim/ftplugin
+" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
+"set nofoldenable
+
+
+"My useful settings
+"Nice
+
+set nocompatible
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+filetype indent on
+" filetype plugin on
+set smartindent
+set backspace=indent,eol,start
+"set hlsearch
+set nohls " hlsearch if want highlighting
+set showcmd		" display incomplete commands
+set winminheight=0
+set incsearch
+set magic
+set nobackup
+set nowritebackup
+set noswapfile
+" imap <C-'> <C-]>pi
+"map <F12> <C-W>_
+"map <F11> 25<C-W>_
+set matchpairs+=<:>
+"map <C-k> :tabnext<CR>
+vmap  / y/<C-R>=substitute(escape(@", '\\/.*$^~[]'), "\n", "\\\\n", "g")<CR><CR>
 set wildmenu
-set mouse+=a " enable mouse mode (scrolling, selection, etc)
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+"map ,/ :s/^/\/\//<CR> <Esc>:noh<CR>
+"map ./ :s/^\/\///<CR> <Esc>:noh<CR>
+"map ,# :s/^/#/<CR> <Esc>:noh<CR>
+"map .# :s/^#//<CR> <Esc>:noh<CR>
+"map <C-J> <C-W>x<C-W><Down>
+"map <Leader>x <c-[>'<^r<CR>i/*<c-[>'>$i*/<c-[>
+set tabstop=4
+set shiftwidth=4
+set expandtab
+"autocmd BufRead *.as set filetype=java
+"autocmd BufRead *.tt set filetype=php
+"autocmd BufRead *.pp set filetype=ruby
+"set dir=~/.vim/swp
+"set t_Co=256
+"let g:solarized_termcolors=256
+"colors clarity
+" colors darkblue
+"set background=dark
+"colorscheme oceanblack 
+"colors darkblue
+"colorscheme wombat256  
+"set ttyfast
+"set fileencodings=utf-8
+"set encoding=utf-8 
+"set enc=utf-8
+"set fencs=utf-8
+" show matching brackets
+"autocmd FileType perl set showmatch
+
+" check perl code with :make
+"autocmd FileType perl set makeprg=perl\ -Ilib\ -c\ %\ $*
+"autocmd FileType perl set errorformat=%f:%l:%m
+"autocmd FileType perl set autowrite
+"autocmd FileType perl set expandtab
+"autocmd FileType perl set equalprg=perltidy
+"autocmd FileType python set equalprg=pythontidy.py
+"autocmd FileType perl set iskeyword+=:
+"autocmd FileType javascript set iskeyword-=:
+"autocmd FileType javascript set equalprg=js_beautify.pl\ -
+"autocmd FileType make set noexpandtab
+"let perl_include_pod = 1
+"autocmd FileType set equalprg&
+" syntax color complex things like @{${"foo"}}
+"nnoremap ; :
+"nnoremap gf :sp<CR>gf
+syntax enable
+"set smartcase
+
+nmap <tab> v>
+nmap <c-tab> v<
+
+nmap <c-a> <home>
+nmap <c-e> <end>
+
+"inoremap <C-@> <C-N>
+"inoremap <C-S-@> <C-P>
+
+nmap <C-/> <Leader>cc 
+
+noremap Y y$
+
+map <Leader>j <C-F>
+map <Leader>k <C-B>
+
+autocmd FileType python map <buffer> <Leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <Leader>r <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+"let custom_configs_1 = "~/.vim/my_config.vimrc"
+"if filereadable(expand(custom_configs_1))
+  "execute "source " . custom_configs_1
+"endif
+
+let custom_configs_2 = "~/.vim/complex_config.vimrc"
+if filereadable(expand(custom_configs_2))
+  execute "source " . custom_configs_2
 endif
 
-"--------------------
-" Misc configurations
-"--------------------
-
-" unbind keys
-map <C-a> <Nop>
-map <C-x> <Nop>
-nmap Q <Nop>
-
-" disable audible bell
-set noerrorbells visualbell t_vb=
-
-" open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" movement relative to display lines
-nnoremap <silent> <Leader>d :call ToggleMovementByDisplayLines()<CR>
-function SetMovementByDisplayLines()
-    noremap <buffer> <silent> <expr> k v:count ? 'k' : 'gk'
-    noremap <buffer> <silent> <expr> j v:count ? 'j' : 'gj'
-    noremap <buffer> <silent> 0 g0
-    noremap <buffer> <silent> $ g$
-endfunction
-function ToggleMovementByDisplayLines()
-    if !exists('b:movement_by_display_lines')
-        let b:movement_by_display_lines = 0
-    endif
-    if b:movement_by_display_lines
-        let b:movement_by_display_lines = 0
-        silent! nunmap <buffer> k
-        silent! nunmap <buffer> j
-        silent! nunmap <buffer> 0
-        silent! nunmap <buffer> $
-    else
-        let b:movement_by_display_lines = 1
-        call SetMovementByDisplayLines()
-    endif
-endfunction
-
-" toggle relative numbering
-nnoremap <C-n> :set rnu!<CR>
-
-" save read-only files
-command -nargs=0 Sudow w !sudo tee % >/dev/null
-
-"---------------------
-" Plugin configuration
-"---------------------
-
-" nerdtree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
-
-" buffergator
-let g:buffergator_suppress_keymaps = 1
-nnoremap <Leader>b :BuffergatorToggle<CR>
-
-" gundo
-nnoremap <Leader>u :GundoToggle<CR>
-if has('python3')
-    let g:gundo_prefer_python3 = 1
-endif
-
-" ctrlp
-nnoremap ; :CtrlPBuffer<CR>
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_show_hidden = 1
-
-" ag / ack.vim
-command -nargs=+ Gag Gcd | Ack! <args>
-nnoremap K :Gag "\b<C-R><C-W>\b"<CR>:cw<CR>
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-    let g:ackprg = 'ag --vimgrep'
-endif
-
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': []
-\}
-nnoremap <Leader>s :SyntasticCheck<CR>
-nnoremap <Leader>r :SyntasticReset<CR>
-nnoremap <Leader>i :SyntasticInfo<CR>
-nnoremap <Leader>m :SyntasticToggleMode<CR>
-
-" easymotion
-map <Space> <Plug>(easymotion-prefix)
-
-" incsearch
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-" incsearch-easymotion
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
-
-" argwrap
-nnoremap <Leader>w :ArgWrap<CR>
-
-noremap <Leader>x :OverCommandLine<CR>
-
-" markdown
-let g:markdown_fenced_languages = [
-    \ 'bash=sh',
-    \ 'c',
-    \ 'coffee',
-    \ 'erb=eruby',
-    \ 'javascript',
-    \ 'json',
-    \ 'perl',
-    \ 'python',
-    \ 'ruby',
-    \ 'yaml',
-    \ 'go',
-\]
-let g:markdown_syntax_conceal = 0
-
-" fugitive
-set tags^=.git/tags;~
-
-"---------------------
-" Local customizations
-"---------------------
-
-" local customizations in ~/.vimrc_local
-let $LOCALFILE=expand("~/.vimrc_local")
-if filereadable($LOCALFILE)
-    source $LOCALFILE
-endif

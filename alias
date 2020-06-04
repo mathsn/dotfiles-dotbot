@@ -1,0 +1,7 @@
+#alias jj='java -jar'
+#alias mcp='mvn clean package'
+alias vx='/Users/Ning/bin/vim'
+alias icloud='cd "/Users/Ning/Library/Mobile Documents/com~apple~CloudDocs/"'
+alias nv='nvim'
+alias vi='nvim'
+

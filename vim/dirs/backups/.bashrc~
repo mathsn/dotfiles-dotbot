@@ -1,0 +1,4 @@
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export DYLD_LIBRARY_PATH="/usr/local/cuda/lib":$DYLD_LIBRARY_PATH
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

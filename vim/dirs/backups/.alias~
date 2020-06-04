@@ -1,0 +1,3 @@
+alias jj='java -jar'
+alias mcp='mvn clean package'
+alias vx='/Users/Ning/bin/vim'

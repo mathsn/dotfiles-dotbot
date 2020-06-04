@@ -1,1 +1,1 @@
-c.NotebookApp.open_browser = False
+/Users/Ning/dotfiles-dotbot/jupyter/jupyter_notebook_config.py

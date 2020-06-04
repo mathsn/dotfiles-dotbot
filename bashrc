@@ -1,40 +1,22 @@
-# Functions
-source ~/.shell/functions.sh
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export DYLD_LIBRARY_PATH="/usr/local/cuda/lib":$DYLD_LIBRARY_PATH
 
-# Allow local customizations in the ~/.shell_local_before file
-if [ -f ~/.shell_local_before ]; then
-    source ~/.shell_local_before
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/Ning/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/Ning/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/Ning/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/Ning/anaconda3/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# Allow local customizations in the ~/.bashrc_local_before file
-if [ -f ~/.bashrc_local_before ]; then
-    source ~/.bashrc_local_before
-fi
-
-# Settings
-source ~/.bash/settings.bash
-
-# Bootstrap
-source ~/.shell/bootstrap.sh
-
-# External settings
-source ~/.shell/external.sh
-
-# Aliases
-source ~/.shell/aliases.sh
-
-# Custom prompt
-source ~/.bash/prompt.bash
-
-# Plugins
-source ~/.bash/plugins.bash
-
-# Allow local customizations in the ~/.shell_local_after file
-if [ -f ~/.shell_local_after ]; then
-    source ~/.shell_local_after
-fi
-
-# Allow local customizations in the ~/.bashrc_local_after file
-if [ -f ~/.bashrc_local_after ]; then
-    source ~/.bashrc_local_after
-fi

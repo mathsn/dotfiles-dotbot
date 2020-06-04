@@ -1,0 +1,69 @@
+# >>> conda initialize >>># !! Contents within this block are managed by 'conda init' !!,V
+0,v
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1,V
+ Async autocompletion,V
+/home/haojiedong/tools/anaconda3/bin/python,v
+/Users/Ning/anaconda3/bin,v
+",V
+pip install neovim,V
+,V
+"endif,V
+"if has('nvim')  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }"else  "Plug 'Shougo/deoplete.nvim'  "Plug 'roxma/nvim-yarp'  "Plug 'roxma/vim-hug-neovim-rpc',V
+# added by Anaconda3 2018.12 installer# >>> conda init >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"if [ $? -eq 0 ]; then    \eval "$__conda_setup"else    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then# . "/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize        CONDA_CHANGEPS1=false conda activate base    else        \export PATH="/anaconda3/bin:$PATH"    fifiunset __conda_setup# <<< conda init <<<# <<< conda init <<<,V
+# added by Anaconda3 2018.12 installer# >>> conda init >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/Ning/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"if [ $? -eq 0 ]; then    \eval "$__conda_setup"else    if [ -f "/Users/Ning/anaconda3/etc/profile.d/conda.sh" ]; then# . "/Users/Ning/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize        CONDA_CHANGEPS1=false conda activate base    else        \export PATH="/Users/Ning/anaconda3/bin:$PATH"    fifiunset __conda_setup,V
+# >>> conda initialize >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$('/Users/Ning/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"if [ $? -eq 0 ]; then    eval "$__conda_setup"else    if [ -f "/Users/Ning/anaconda3/etc/profile.d/conda.sh" ]; then        . "/Users/Ning/anaconda3/etc/profile.d/conda.sh"    else        export PATH="/Users/Ning/anaconda3/bin:$PATH"    fifiunset __conda_setup# <<< conda initialize <<<,V
+# added by Anaconda3 2018.12 installer# >>> conda init >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"if [ $? -eq 0 ]; then    \eval "$__conda_setup"else    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then# . "/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize        CONDA_CHANGEPS1=false conda activate base    else        \export PATH="/anaconda3/bin:$PATH"    fifiunset __conda_setup# <<< conda init <<<# added by Anaconda3 2018.12 installer# >>> conda init >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/Ning/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"if [ $? -eq 0 ]; then    \eval "$__conda_setup"else    if [ -f "/Users/Ning/anaconda3/etc/profile.d/conda.sh" ]; then# . "/Users/Ning/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize        CONDA_CHANGEPS1=false conda activate base    else        \export PATH="/Users/Ning/anaconda3/bin:$PATH"    fifiunset __conda_setup# <<< conda init <<<# >>> conda initialize >>># !! Contents within this block are managed by 'conda init' !!__conda_setup="$('/Users/Ning/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"if [ $? -eq 0 ]; then    eval "$__conda_setup"else    if [ -f "/Users/Ning/anaconda3/etc/profile.d/conda.sh" ]; then        . "/Users/Ning/anaconda3/etc/profile.d/conda.sh"    else        export PATH="/Users/Ning/anaconda3/bin:$PATH"    fifiunset __conda_setup# <<< conda initialize <<<,V
+let g:deoplete#enable_at_startup = 1,V
+if has('nvim')  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }else  Plug 'Shougo/deoplete.nvim'  Plug 'roxma/nvim-yarp'  Plug 'roxma/vim-hug-neovim-rpc'endiflet g:deoplete#enable_at_startup = 1,v
+pip3 install --user pynvim,V
+ Plug 'Shougo/deoplete.nvim',v
+supertab,v
+curl -sLf https://spacevim.org/install.sh | bash,V
+",v
+alias nv='nvim',V
+export NVIM_PYTHON_LOG_LEVEL=DEBUG,v
+set runtimepath+=~/.vim,~/.vim/afterset packpath+=~/.vimsource ~/.vimrc,v
+iall neomake#configure#automake('w'),V
+"",v
+call neomake#configure#automake('w'),V
+Plug 'neomake/neomake',V
+Plug 'sheerun/vim-polyglot',V
+Plug 'Townk/vim-autoclose',V
+Plug 'tpope/vim-surround',V
+Townk/vim-autoclose,v
+Shougo/context_filetype.vim,v
+roxma/vim-hug-neovim-rpc,v
+roxma/nvim-yarp,v
+help deoplete-options,v
+Shougo/deoplete.nvim,v
+fisadev/FixedTaskList.vim,v
+junegunn/fzf,v
+fisadev/fisa-vim-colorscheme,v
+colorscheme vim-monokai-tasty,V
+patstockwell/vim-monokai-tasty,v
+'vim-scripts/IndexedSearch',v
+scrooloose/nerdcommenter,v
+arielrossanigo/dir-configs-override.vim,v
+ ";",v
+2:complex_config.vimrc,v
+1:.vimrc,v
+7:complex_config.vimrc,v
+p,v
+n,v
+M-Left,v
+M-Right,v
+-,v
+M,v
+wRight,v
+M-Right>,v
+powerline/powerline,v
+nmap <c-e> <end>,V
+map <c-a> <home>,V
+2:my_config.vimrc,v
+my,v
+let custom_configs_1 = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_1))  execute "source " . custom_configs_1endiflet custom_configs_path = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_path))  execute "source " . custom_configs_pathendiflet custom_configs_path = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_path))  execute "source " . custom_configs_pathendif,V
+let custom_configs_2 = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_2))  execute "source " . custom_configs_2endif,V
+let custom_configs_1 = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_1))  execute "source " . custom_configs_1endif,V
+let custom_configs_path = "~/.vim/my.vimrc"if filereadable(expand(custom_configs_path))  execute "source " . custom_configs_pathendif,v
+custom,v
+/Users/Ning/vim_bak/vim/autoload/Users/Ning/vim_bak/vim/bundle,v

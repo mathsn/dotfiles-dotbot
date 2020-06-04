@@ -1,0 +1,99 @@
+" Options
+"set guioptions=r
+
+"set wildmode=list:longest
+
+set visualbell
+
+set history=1000
+
+set showmode
+
+set titlestring=Mozilla
+
+"set focuscontent
+
+set hlsearch
+
+"set background-color:#fce94f; padding:0; display:inline;
+
+set activate=homepage,quickmark,paste
+
+"set font-family:monospace; font-weight: medium; font-size:10px; color:white; background-color: #ef2828; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 1px 0px 1px; position:absolute;
+
+set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|«)$,^(<|«),(<|«)$ 
+    
+"set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|??|?)$,^(>|?),(>|?)$,\bmore\b
+"set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|??|?)$,^(<|?),(<|?)$
+
+" PassThrough gmail and greader
+autocmd LocationChange .* js modes.passAllKeys = /.*(mail\.google\.com|www\.google\.com\/reader).*/.test(buffer.URL)
+
+" Mappings
+
+map <BS> gu
+map <A-RIGHT> :set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs<CR>
+map <A-LEFT> :set gui=noaddons,nobookmarks,nomenu,navigation,tabs<CR>
+map <A-Up> :set ls=2<CR>
+map <A-Down> :tabo<CR>
+
+map <C-q> :quit<CR>
+
+map b <C-O>
+
+map <S-RIGHT> <C-n> 
+
+map <S-LEFT> <C-p> 
+
+map ,p :ha!
+map ,s :source ~/.vimperatorrc<CR>
+
+map <F2> :tabopen www.google.com/notebook<CR>
+
+map gn :tabopen www.google.com/ig<CR>
+
+map gr :tabopen www.google.com/reader<CR>
+
+map g6 :tabopen www.6park.com<CR>
+
+map g0 :tabopen api.home<CR>
+
+map g1 :tabopen www.google.cn/finance<CR>
+
+map gs :tabopen www.google.com/scholar<CR>
+
+map gt :tabopen translate.google.com<CR>
+
+map gd :tabopen https://docs.google.com<CR>
+
+map A <Nop>
+map J <C-d>
+noremap K <C-u>
+
+map L gl
+noremap j 5j
+noremap k 5k
+
+noremap I <C-o>
+noremap O <C-i>
+noremap <C-u> <C-v><C-u>
+noremap <C-s> <C-c>
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-z> <C-v><C-z>
+inoremap <C-y> <C-v><C-y>
+
+" Abbreviations
+
+cabbrev tn tabnew
+cabbrev to tabopen
+
+" vim: set ft=vimperator:

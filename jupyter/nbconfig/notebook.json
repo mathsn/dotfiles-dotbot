@@ -1,0 +1,25 @@
+{
+  "keys": {
+    "command": {
+      "bind": {
+        "alt-up": "jupyter-notebook:clear-cell-output",
+        "alt-shift-up": "jupyter-notebook:move-cell-up",
+        "ctrl-down": "jupyter-notebook:move-cell-down",
+        "alt-down": "jupyter-notebook:move-cursor-down",
+        "alt-shift-down": "jupyter-notebook:move-cell-down",
+        "ctrl-up": "jupyter-notebook:move-cell-up"
+      }
+    }
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
+  },
+  "load_extensions": {
+    "code_prettify/2to3": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "code_prettify/code_prettify": true,
+    "contrib_nbextensions_help_item/main": true
+  }
+}

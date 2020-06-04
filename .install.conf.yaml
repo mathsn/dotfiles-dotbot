@@ -3,8 +3,20 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.config']
+- clean: ['~']
 
+- link:
+    ~/.dotfiles: ''
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+
+- create:
+    - ~/downloads
+    - ~/.vim/undo-history
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
 - link:
     ~/.bash:
     ~/.bash_profile:
@@ -30,11 +42,6 @@
     ~/.vimrc:
     ~/.zsh:
     ~/.zshrc:
-
-- create:
-  - ~/.rtorrent/session
-  - ~/.rtorrent/watch
-  - ~/.rtorrent/downloads
 
 - shell:
   - git submodule sync --recursive
