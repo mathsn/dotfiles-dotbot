@@ -3,8 +3,8 @@ from __future__ import print_function
 
 import yaml
 import os
-
-CONFIG="install.test.yaml"
+import shutil
+CONFIG="install.conf.yaml"
 
 stream = open(CONFIG, "r")
 conf = yaml.load(stream)
@@ -21,5 +21,6 @@ for section in conf:
                 os.remove(realpath)
                 print("delete the file ")
             if os.path.exists(realpath) and os.path.isdir(realpath):
-                os.rmdir(realpath)
+                # os.rmdir(realpath)
+                shutil.rmtree(realpath)
                 print("delete the dir")
