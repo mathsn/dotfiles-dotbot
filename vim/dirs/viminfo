@@ -18,7 +18,7 @@ $
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1591263275,,"q"
+|2,0,1591286034,,"q"
 :w
 |2,0,1591029597,,"w"
 :wq
@@ -242,36 +242,50 @@ $
 |3,0,36,0,1,0,1591025837,"0"
 
 # File marks:
-'0  107  0  ~/tmux.conf
-|4,48,107,0,1591263275,"~/tmux.conf"
-'1  56  4  ~/dotfiles-dotbot/install.conf.yaml
-|4,49,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
-'2  1  0  ~/NERD_tree_1
-|4,50,1,0,1591224304,"~/NERD_tree_1"
-'3  1  0  ~/.dotfiles/install
-|4,51,1,0,1591224294,"~/.dotfiles/install"
-'4  1  0  ~/NERD_tree_1
-|4,52,1,0,1591224064,"~/NERD_tree_1"
-'5  125  0  ~/.zshrc
-|4,53,125,0,1591029631,"~/.zshrc"
-'6  4  0  ~/.alias
-|4,54,4,0,1591029607,"~/.alias"
-'7  46  0  ~/.bash_profile
-|4,55,46,0,1591029487,"~/.bash_profile"
-'8  2  0  ~/NERD_tree_1
-|4,56,2,0,1591028046,"~/NERD_tree_1"
-'9  3  0  ~/NERD_tree_1
-|4,57,3,0,1591028046,"~/NERD_tree_1"
+'0  1  0  ~/dotfiles-dotbot/.git/COMMIT_EDITMSG
+|4,48,1,0,1591286034,"~/dotfiles-dotbot/.git/COMMIT_EDITMSG"
+'1  107  0  ~/tmux.conf
+|4,49,107,0,1591263275,"~/tmux.conf"
+'2  56  4  ~/dotfiles-dotbot/install.conf.yaml
+|4,50,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
+'3  1  0  ~/NERD_tree_1
+|4,51,1,0,1591224304,"~/NERD_tree_1"
+'4  1  0  ~/.dotfiles/install
+|4,52,1,0,1591224294,"~/.dotfiles/install"
+'5  1  0  ~/NERD_tree_1
+|4,53,1,0,1591224064,"~/NERD_tree_1"
+'6  125  0  ~/.zshrc
+|4,54,125,0,1591029631,"~/.zshrc"
+'7  4  0  ~/.alias
+|4,55,4,0,1591029607,"~/.alias"
+'8  46  0  ~/.bash_profile
+|4,56,46,0,1591029487,"~/.bash_profile"
+'9  2  0  ~/NERD_tree_1
+|4,57,2,0,1591028046,"~/NERD_tree_1"
 
 # Jumplist (newest first):
+-'  1  0  ~/dotfiles-dotbot/.git/COMMIT_EDITMSG
+|4,39,1,0,1591286034,"~/dotfiles-dotbot/.git/COMMIT_EDITMSG"
 -'  107  0  ~/tmux.conf
 |4,39,107,0,1591263275,"~/tmux.conf"
+-'  107  0  ~/tmux.conf
+|4,39,107,0,1591263275,"~/tmux.conf"
+-'  1  0  ~/tmux.conf
+|4,39,1,0,1591263273,"~/tmux.conf"
 -'  1  0  ~/tmux.conf
 |4,39,1,0,1591263273,"~/tmux.conf"
 -'  56  4  ~/dotfiles-dotbot/install.conf.yaml
 |4,39,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
 -'  56  4  ~/dotfiles-dotbot/install.conf.yaml
 |4,39,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
+-'  56  4  ~/dotfiles-dotbot/install.conf.yaml
+|4,39,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
+-'  56  4  ~/dotfiles-dotbot/install.conf.yaml
+|4,39,56,4,1591262624,"~/dotfiles-dotbot/install.conf.yaml"
+-'  1  0  ~/dotfiles-dotbot/install.conf.yaml
+|4,39,1,0,1591262621,"~/dotfiles-dotbot/install.conf.yaml"
+-'  1  0  ~/dotfiles-dotbot/install.conf.yaml
+|4,39,1,0,1591262621,"~/dotfiles-dotbot/install.conf.yaml"
 -'  1  0  ~/dotfiles-dotbot/install.conf.yaml
 |4,39,1,0,1591262621,"~/dotfiles-dotbot/install.conf.yaml"
 -'  1  0  ~/dotfiles-dotbot/install.conf.yaml
@@ -284,6 +298,22 @@ $
 |4,39,1,0,1591224304,"~/NERD_tree_1"
 -'  1  0  ~/NERD_tree_1
 |4,39,1,0,1591224304,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224304,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224304,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224304,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224304,"~/NERD_tree_1"
+-'  13  2  ~/NERD_tree_1
+|4,39,13,2,1591224300,"~/NERD_tree_1"
+-'  13  2  ~/NERD_tree_1
+|4,39,13,2,1591224300,"~/NERD_tree_1"
+-'  13  2  ~/NERD_tree_1
+|4,39,13,2,1591224300,"~/NERD_tree_1"
+-'  13  2  ~/NERD_tree_1
+|4,39,13,2,1591224300,"~/NERD_tree_1"
 -'  13  2  ~/NERD_tree_1
 |4,39,13,2,1591224300,"~/NERD_tree_1"
 -'  13  2  ~/NERD_tree_1
@@ -308,6 +338,22 @@ $
 |4,39,1,0,1591224294,"~/.dotfiles/install"
 -'  1  0  ~/.dotfiles/install
 |4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
+-'  1  0  ~/.dotfiles/install
+|4,39,1,0,1591224294,"~/.dotfiles/install"
 -'  1  0  ~/NERD_tree_1
 |4,39,1,0,1591224064,"~/NERD_tree_1"
 -'  1  0  ~/NERD_tree_1
@@ -324,6 +370,46 @@ $
 |4,39,1,0,1591224064,"~/NERD_tree_1"
 -'  1  0  ~/NERD_tree_1
 |4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  1  0  ~/NERD_tree_1
+|4,39,1,0,1591224064,"~/NERD_tree_1"
+-'  51  2  ~/NERD_tree_1
+|4,39,51,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  51  2  ~/NERD_tree_1
+|4,39,51,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  51  2  ~/NERD_tree_1
+|4,39,51,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  51  2  ~/NERD_tree_1
+|4,39,51,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
+-'  52  2  ~/NERD_tree_1
+|4,39,52,2,1591224059,"~/NERD_tree_1"
 -'  51  2  ~/NERD_tree_1
 |4,39,51,2,1591224059,"~/NERD_tree_1"
 -'  52  2  ~/NERD_tree_1
@@ -378,94 +464,12 @@ $
 |4,39,125,0,1591029631,"~/.zshrc"
 -'  125  0  ~/.zshrc
 |4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  125  0  ~/.zshrc
-|4,39,125,0,1591029631,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1591029621,"~/.zshrc"
 
 # History of marks within files (newest to oldest):
+
+> ~/dotfiles-dotbot/.git/COMMIT_EDITMSG
+	*	1591286030	0
+	"	1	0
 
 > ~/tmux.conf
 	*	1591263274	0
