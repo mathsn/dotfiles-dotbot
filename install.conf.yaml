@@ -31,7 +31,8 @@
     ~/.zsh:
     ~/.zshrc:
     ~/.oh-my-zsh:
-    ~/.config:
+    ~/.config/nvim/init.vim: init.vim 
+    #~/.config:
     ~/.jupyter:
     #~/.zshrc:
     #~/.zsh_profile:
